@@ -23,7 +23,7 @@ class NozzleSimulatorCustomApp(NozzleSimulatorApp):
         # windows and behaviour as the established application.
         ctk.set_appearance_mode("Light")
         super().__init__()
-        self.title("Rocket Nozzle Simulator - visual style test")
+        self.title("NoZZoMe")
         self.configure(background="#E6E4DF")
         self.summary.configure(
             background="#FAF9F6",
@@ -47,9 +47,9 @@ class NozzleSimulatorCustomApp(NozzleSimulatorApp):
         border = "#AAA8A2"
         text = "#24272A"
         muted = "#60656A"
-        accent = "#526A7C"
-        accent_active = "#405665"
-        selection = "#D4DBDF"
+        accent = "#167A45"
+        accent_active = "#0E5F35"
+        selection = "#D8EFE3"
 
         self.option_add("*Font", ("Segoe UI", 9))
         self.option_add("*Background", background)
@@ -76,7 +76,7 @@ class NozzleSimulatorCustomApp(NozzleSimulatorApp):
         style.configure(
             "ResultValue.TLabel",
             background=background,
-            foreground="#334A5B",
+            foreground="#205B3B",
             font=("Consolas", 10),
         )
         style.configure(

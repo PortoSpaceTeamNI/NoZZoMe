@@ -21,6 +21,8 @@ from .optimization import OptimizationResult, OptimizationSettings, optimize_geo
 from .performance import loss_breakdown
 from .simulation import simulate
 
+from PIL import Image, ImageTk
+
 FIELD_GROUPS = {
     "Operating point — RocketCEA": [
         ("chamber_pressure_bar", "Chamber pressure", "bar", "30.0"),
@@ -76,7 +78,7 @@ DEFAULT_MOC_OPTIMIZATION_RESOLUTION = "Fast MOC - 600 x 101"
 class NozzleSimulatorApp(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("Rocket Nozzle Simulator")
+        self.title("NoZZoMe")
         self.minsize(1180, 720)
         self._maximize_window()
         self.result: SimulationResult | None = None
@@ -127,13 +129,28 @@ class NozzleSimulatorApp(tk.Tk):
     def _build_layout(self):
         self.columnconfigure(1, weight=1)
         self.rowconfigure(1, weight=1)
-        header = ttk.Frame(self, padding=(18, 12))
-        header.grid(row=0, column=0, columnspan=2, sticky="ew")
-        ttk.Label(header, text="Rocket Nozzle Simulator", style="Title.TLabel").pack(side="left")
+        header = ttk.Frame(self, padding=(18, 12, 18, 0))
+        header.grid(row=0, column=0, sticky="nw")
+        logo_path = (
+            Path(__file__).resolve().parent.parent
+            / "docs"
+            / "images"
+            / "nozzome-logo-right-larger-green.png"
+        )
+
+        logo = Image.open(logo_path)
+        logo.thumbnail((260, 145), Image.Resampling.LANCZOS)
+
+        self.logo_image = ImageTk.PhotoImage(logo)
+
         ttk.Label(
             header,
+            image=self.logo_image,
+        ).pack(side="left")
+        '''ttk.Label(
+            header,
             text="Bell geometry · RocketCEA · Flow · Thermal · Boundary layer",
-        ).pack(side="left", padx=18, pady=(7, 0))
+        ).pack(side="left", padx=18, pady=(7, 0))'''
 
         controls = ttk.Frame(self, padding=(12, 0, 8, 8), width=340)
         controls.grid(row=1, column=0, sticky="nsw")
@@ -141,7 +158,14 @@ class NozzleSimulatorApp(tk.Tk):
         self._build_controls(controls)
 
         self.notebook = ttk.Notebook(self)
-        self.notebook.grid(row=1, column=1, sticky="nsew", padx=(0, 12), pady=(0, 8))
+        self.notebook.grid(
+    row=0,
+    column=1,
+    rowspan=2,
+    sticky="nsew",
+    padx=(8, 12),
+    pady=(12, 8),
+)
         optimization_frame = ttk.Frame(self.notebook)
         self.notebook.add(optimization_frame, text="Optimization")
         self.tab_frames["Optimization"] = optimization_frame
