@@ -57,6 +57,18 @@ solver and interactive 2D/3D visualization.
   <sub><b>Figure 7 -</b> Thermal analysis interface and nozzle wall heat-transfer results.</sub>
 </p>
 
+<p align="center">
+  <img src="docs/images/int_flow.png" width="800">
+  <br>
+  <sub><b>Figure 8 -</b> Quasi-One-Dimensional isentropic flow properties analysis interface.</sub>
+</p>
+
+<p align="center">
+  <img src="docs/images/int_exp.png" width="800">
+  <br>
+  <sub><b>Figure 9 -</b> Expansion ration interface graphical visualization results.</sub>
+</p>
+
 ## Highlights
 
 - One desktop interface for geometry, CEA data and engineering profiles.
