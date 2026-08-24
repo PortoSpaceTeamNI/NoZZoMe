@@ -134,7 +134,7 @@ class NozzleSimulatorApp(tk.Tk):
             Path(__file__).resolve().parent.parent
             / "docs"
             / "images"
-            / "nozzome-logo-right-larger-green.png"
+            / "nozzome_logo.png"
         )
 
         logo = Image.open(logo_path)

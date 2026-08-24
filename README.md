@@ -1,13 +1,15 @@
-<p align="center">
-  <img src="docs/images/nozzome-logo-right-larger-green.png" width="430" alt="NoZZoMe logo">
-</p>
-
 # NoZZoMe
 
 [![Tests](https://github.com/PortoSpaceTeamNI/NoZZoMe/actions/workflows/tests.yml/badge.svg)](https://github.com/PortoSpaceTeamNI/NoZZoMe/actions/workflows/tests.yml)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-18864B.svg)](LICENSE)
 [![RocketCEA](https://img.shields.io/badge/thermochemistry-RocketCEA-orange)](https://pypi.org/project/rocketcea/)
+
+
+<p align="center">
+  <img src="docs/images/nozzome-logo-right-larger-green.png" width="430" alt="NoZZoMe logo">
+</p>
+
 
 **NoZZoMe** is an open-source Python framework for generating, analysing and
 optimizing axisymmetric single-bell rocket-nozzle contours. It couples parametric
