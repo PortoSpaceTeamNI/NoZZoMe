@@ -1,7 +1,7 @@
 numpy>=2.0
 scipy>=1.14
 matplotlib>=3.9
-rocketcea>=1.2.1
+rocketcea>=1.2.1,<1.3
 PyGAD>=3.7
 customtkinter>=5.2,<6
 Pillow>=10
