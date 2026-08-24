@@ -7,7 +7,9 @@ from functools import lru_cache
 from pathlib import Path
 from threading import RLock
 
-from rocketcea.cea_obj import add_new_fuel, set_rocketcea_data_dir
+#from rocketcea.cea_obj import add_new_fuel, set_rocketcea_data_dir
+import rocketcea.cea_obj as rocketcea_core
+from rocketcea.cea_obj import add_new_fuel
 from rocketcea.cea_obj_w_units import CEA_Obj
 
 if __package__:
@@ -248,7 +250,13 @@ def initialize_cea_worker(temp_root: str) -> None:
     """Give each process its own RocketCEA Fortran working files."""
     worker_directory = Path(temp_root) / f"worker-{os.getpid()}"
     worker_directory.mkdir(parents=True, exist_ok=True)
-    set_rocketcea_data_dir(str(worker_directory), do_print=False)
+    #set_rocketcea_data_dir(str(worker_directory), do_print=False)
+    setter = getattr(rocketcea_core, "set_rocketcea_data_dir", None)
+
+    if setter is not None:
+        setter(str(worker_directory), do_print=False)
+    else:
+        rocketcea_core.ROCKETCEA_DATA_DIR = str(worker_directory)
     get_cea.cache_clear()
     _ideal_expansion_ratio_cached.cache_clear()
     _invariant_transport_cached.cache_clear()
