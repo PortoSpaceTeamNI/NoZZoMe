@@ -15,7 +15,7 @@ release versions should follow [Semantic Versioning](https://semver.org/).
 
 - Project identity and documentation updated to NoZZoMe.
 
-## [0.2.0] - YYYY-MM-DD
+## [0.2.0] - 2026-08-24
 
 ### Added
 
