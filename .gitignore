@@ -36,3 +36,6 @@ pexit_vs_exp_*.csv
 f.out
 temp.dat
 rocketcea_output.txt
+
+# Local document-build tools
+.tools/
