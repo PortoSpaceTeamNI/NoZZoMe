@@ -8,7 +8,7 @@
 
 
 <p align="center">
-  <img src="docs/images/nozzome-logo-right-larger-green.png" width="430" alt="NoZZoMe logo">
+  <img src="docs/images/nozzome_logo.png" width="430" alt="NoZZoMe logo">
 </p>
 
 
