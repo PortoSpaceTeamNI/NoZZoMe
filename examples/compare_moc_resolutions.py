@@ -91,6 +91,18 @@ def main() -> None:
         type=Path,
         default=Path("outputs/moc_final_geometry_extended_convergence.csv"),
     )
+    parser.add_argument(
+        "--fresh",
+        action="store_true",
+        help="Ignore all previously saved meshes and recompute the study.",
+    )
+    parser.add_argument(
+        "--skip",
+        action="append",
+        default=[],
+        metavar="NXxNR",
+        help="Skip a resolution (repeat the option to skip more than one).",
+    )
     args = parser.parse_args()
 
     inputs = NozzleInputs(
@@ -122,7 +134,7 @@ def main() -> None:
         if args.output.exists()
         else Path("outputs/moc_final_geometry_mesh_convergence.csv")
     )
-    if seed_path.exists():
+    if not args.fresh and seed_path.exists():
         allowed = {f"{axial}x{radial}" for axial, radial in RESOLUTIONS}
         with seed_path.open(newline="", encoding="utf-8") as stream:
             for source in csv.DictReader(stream):
@@ -162,10 +174,13 @@ def main() -> None:
         print(f"Resuming from {seed_path} with {len(rows)} saved meshes.", flush=True)
 
     completed = {str(row["resolution"]) for row in rows}
+    skipped = set(args.skip)
     stable_steps = 0
     for axial, radial in RESOLUTIONS:
         resolution = f"{axial}x{radial}"
-        if resolution in completed:
+        if resolution in completed or resolution in skipped:
+            if resolution in skipped:
+                print(f"Skipping requested resolution {resolution}.", flush=True)
             continue
         print(f"Running Kliegel-Levine MOC {axial} x {radial}...", flush=True)
         wall_started = time.perf_counter()

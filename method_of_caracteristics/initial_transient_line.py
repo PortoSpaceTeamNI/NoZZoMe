@@ -139,7 +139,7 @@ def _kliegel_levine_velocity_ratios(
         + z
         * (
             (556.0 * gamma**2 + 1737.0 * gamma + 3069.0) * y**5 / 1728.0
-            - (388.0 * gamma**2 + 1161.0 * gamma + 1181.0) * y**3 / 576.0
+            - (388.0 * gamma**2 + 1161.0 * gamma + 1881.0) * y**3 / 576.0
             + (304.0 * gamma**2 + 831.0 * gamma + 1242.0) * y / 864.0
         )
         + z**2
