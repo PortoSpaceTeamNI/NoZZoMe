@@ -13,6 +13,7 @@ repository-code: "https://github.com/PortoSpaceTeamNI/NoZZoMe"
 url: "https://github.com/PortoSpaceTeamNI/NoZZoMe"
 license: GPL-3.0-only
 version: 0.2.0
+date-released: 2026-08-24
 keywords:
   - rocket nozzle
   - method of characteristics
