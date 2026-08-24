@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for improving the Rocket Nozzle Simulator.
+Thank you for improving NoZZoMe.
 
 ## Development setup
 

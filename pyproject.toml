@@ -3,7 +3,7 @@ requires = ["setuptools>=70"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "rocket-nozzle-simulator"
+name = "NoZZoMe"
 version = "0.2.0"
 description = "Desktop bell-nozzle geometry, RocketCEA, flow, thermal and boundary-layer simulator"
 readme = "README.md"

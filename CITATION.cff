@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use NoZZoMe in research, please cite the software using this metadata."
+title: "NoZZoMe: MOC-Assisted Parametric Bell-Nozzle Design and Optimization"
+type: software
+authors:
+  - family-names: Lino
+    given-names: Rafael
+    affiliation: Porto Space Team
+  - family-names: Ferreira
+    given-names: Francisco
+    affiliation: Faculty of Engineering, University of Porto
+repository-code: "https://github.com/PortoSpaceTeamNI/NoZZoMe"
+url: "https://github.com/PortoSpaceTeamNI/NoZZoMe"
+license: GPL-3.0-only
+version: 0.2.0
+keywords:
+  - rocket nozzle
+  - method of characteristics
+  - genetic algorithm
+  - boundary layer
+  - propulsion
+
