@@ -1,7 +1,4 @@
-"""Launch the experimental CustomTkinter interface.
-
-The established Tk/ttk application remains available through ``run_simulator.py``.
-"""
+"""Launch the NoZZoMe CustomTkinter desktop interface."""
 
 from nozzle_simulator.custom_app import main
 

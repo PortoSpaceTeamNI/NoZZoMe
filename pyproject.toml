@@ -9,10 +9,13 @@ description = "Desktop bell-nozzle geometry, RocketCEA, flow, thermal and bounda
 readme = "README.md"
 requires-python = ">=3.10"
 license = {file = "LICENSE"}
-authors = [{name = "Rafael Lino"}]
+authors = [
+  {name = "Rafael Lino"},
+  {name = "Francisco Ferreira"},
+]
 keywords = ["rocket", "nozzle", "RocketCEA", "bell nozzle", "aerospace"]
 classifiers = [
-  "Development Status :: 3 - Alpha",
+  "Development Status :: 4 - Beta",
   "Intended Audience :: Science/Research",
   "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
   "Programming Language :: Python :: 3",
