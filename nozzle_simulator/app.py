@@ -11,6 +11,7 @@ from tkinter import filedialog, messagebox, ttk
 import numpy as np
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 from matplotlib.figure import Figure
+from PIL import Image, ImageTk
 
 from method_of_caracteristics import MOCSettings, analyze_prescribed_nozzle
 
@@ -20,8 +21,6 @@ from .models import ATM_TO_BAR, NozzleInputs, SimulationResult
 from .optimization import OptimizationResult, OptimizationSettings, optimize_geometry
 from .performance import loss_breakdown
 from .simulation import simulate
-
-from PIL import Image, ImageTk
 
 FIELD_GROUPS = {
     "Operating point — RocketCEA": [
