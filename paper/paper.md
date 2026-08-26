@@ -61,10 +61,6 @@ The validity limits of every reduced-order model are documented, and final desig
 remain subject to CFD, structural and thermal assessment, manufacturing review, and
 experimental validation.
 
-![NoZZoMe analysis and optimization workflow. Reduced-order and axisymmetric models
-support the genetic search, while shortlisted designs undergo exact finalist
-verification before visualization and export.](joss2.png){#fig:workflow width="100%"}
-
 # State of the field
 
 NoZZoMe occupies a different level of scope and fidelity from established propulsion,
@@ -90,6 +86,11 @@ strategy. It complements rather than replaces the cited tools.
 
 The overall analysis and optimization sequence is summarized in
 \autoref{fig:workflow}.
+
+![NoZZoMe analysis and optimization workflow. Reduced-order and axisymmetric models
+support the genetic search, while shortlisted designs undergo exact finalist
+verification before visualization and export.](joss2.png){#fig:workflow width="100%"}
+
 
 ## Shared physical evaluation path
 
