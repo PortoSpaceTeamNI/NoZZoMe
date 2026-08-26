@@ -1,6 +1,6 @@
 # NoZZoMe
 
-**Technical report:** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22087465.svg)](https://doi.org/10.5281/zenodo.22087465)
+[![Technical report](https://img.shields.io/badge/technical%20report-Zenodo-1682D4?logo=zenodo&logoColor=white)](https://doi.org/10.5281/zenodo.22087465)
 [![Tests](https://github.com/PortoSpaceTeamNI/NoZZoMe/actions/workflows/tests.yml/badge.svg)](https://github.com/PortoSpaceTeamNI/NoZZoMe/actions/workflows/tests.yml)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-18864B.svg)](LICENSE)
