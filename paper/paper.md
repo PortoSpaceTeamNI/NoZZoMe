@@ -117,23 +117,19 @@ Table: Main technical capabilities exposed by the common NoZZoMe workflow.
 
 ## Multi-fidelity optimization and verification
 
-Three optimization fidelities expose an explicit cost-versus-detail trade-off. Quick
-screening uses a deliberately weak integral boundary-layer closure; BLIMP-lite uses a
-resolved compressible profile marcher; and MOC-assisted mode introduces
-multidimensional turning into candidate ranking. Evaluating refined MOC for every
-member of a genetic population would be prohibitively expensive, so the latter mode
-constructs a bounded piecewise-linear response surface from an exact MOC design of
-experiments. The surrogate accelerates genetic search only: shortlisted candidates
-are recalculated with exact coarse MOC, finalists are recalculated on Fast or Precise
-meshes, and only an exact verified finalist can be returned.
+Three optimization fidelities balance computational cost and physical detail. Quick
+uses an integral boundary-layer closure, BLIMP-lite uses a resolved compressible
+profile marcher, and MOC-assisted mode includes multidimensional turning. Because
+refined MOC is too costly for every genetic candidate, a bounded piecewise-linear
+surrogate is constructed from exact MOC evaluations. Shortlisted candidates are then
+recomputed with exact coarse MOC, finalists on Fast or Precise meshes, and only an
+exactly verified design is returned.
 
-This hierarchy was chosen to prevent computational acceleration from becoming an
-unreported physical approximation. MOC solutions are checked both against the
-RocketCEA choking reference and for entrance-to-exit mass conservation. Invalid
-geometry, non-finite states, predicted separation, or excessive verification
-residuals cannot be accepted merely because they receive a favourable surrogate
-prediction. Numerical study scripts, retained CSV results, automated tests, and
-continuous integration provide reproducible checks outside the graphical interface.
+Verification prevents surrogate acceleration from concealing physical error. MOC
+solutions are checked against the RocketCEA choking reference and for mass
+conservation. Invalid geometry, non-finite states, predicted separation, or excessive
+residuals are rejected. Numerical studies, retained CSV results, automated tests, and
+continuous integration provide reproducible checks beyond the graphical interface.
 
 ## Interactive inspection
 
@@ -142,10 +138,10 @@ Representative outputs are shown in \autoref{fig:geometry} and
 axisymmetric characteristic-field diagnostics.
 
 ![Parametric single-bell nozzle geometry: two-dimensional contour construction
-and interactive three-dimensional surface visualization.](joss1.png){#fig:geometry width="100%"}
+and interactive three-dimensional surface visualization.](joss1.png){#fig:geometry width="95%"}
 
 ![Axisymmetric MOC diagnostics: Mach-number and static-pressure fields, exit
-radial profiles, and mass-conservation verification.](joss3.png){#fig:moc width="100%"}
+radial profiles, and mass-conservation verification.](joss3.png){#fig:moc width="95%"}
 
 # Research impact statement
 
