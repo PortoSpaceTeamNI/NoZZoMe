@@ -87,11 +87,6 @@ strategy. It complements rather than replaces the cited tools.
 The overall analysis and optimization sequence is summarized in
 \autoref{fig:workflow}.
 
-![NoZZoMe analysis and optimization workflow. Reduced-order and axisymmetric models
-support the genetic search, while shortlisted designs undergo exact finalist
-verification before visualization and export.](joss2.png){#fig:workflow width="100%"}
-
-
 ## Shared physical evaluation path
 
 The central architectural decision is to keep one physical evaluation path across
@@ -102,6 +97,11 @@ maintained Python packages separate geometry, RocketCEA access, flow reconstruct
 thermal diagnostics, boundary-layer integration, performance, MOC, optimization, and
 export, while a shared simulation entry point coordinates the common reduced-order
 analysis.
+
+![NoZZoMe analysis and optimization workflow. Reduced-order and axisymmetric models
+support the genetic search, while shortlisted designs undergo exact finalist
+verification before visualization and export.](joss2.png){#fig:workflow width="100%"}
+
 
 ## Modelling and analysis capabilities
 
