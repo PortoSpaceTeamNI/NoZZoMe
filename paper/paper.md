@@ -1,5 +1,5 @@
 ---
-title: "NoZZoMe: An Open-Source Framework for MOC-Assisted Parametric Bell-Nozzle Optimization"
+title: "NoZZoMe: An Open-Source Parametric Geometry Framework for MOC-Assisted Genetic Optimization of Single Bell Rocket Nozzles"
 tags:
   - Python
   - rocket propulsion
@@ -139,7 +139,7 @@ Representative outputs are shown in \autoref{fig:geometry} and
 axisymmetric characteristic-field diagnostics.
 
 ![Parametric single-bell nozzle geometry: two-dimensional contour construction
-and interactive three-dimensional surface visualization.](joss1.png){#fig:geometry width="95%"}
+and interactive three-dimensional surface visualization.](joss1.png){#fig:geometry width="100%"}
 
 ![Axisymmetric MOC diagnostics: Mach-number and static-pressure fields, exit
 radial profiles, and mass-conservation verification.](joss3.png){#fig:moc width="95%"}
