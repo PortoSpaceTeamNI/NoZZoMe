@@ -67,22 +67,19 @@ verification before visualization and export.](joss2.png){#fig:workflow width="1
 
 # State of the field
 
-Rocket Propulsion Analysis (RPA) provides broad preliminary chemical-rocket-engine
-analysis, including performance, chamber and nozzle design, and thermal calculations
-[@rpa]. NoZZoMe does not seek to reproduce that engine-level scope. Instead, it
-focuses on an open and modifiable Python workflow for tracing how a prescribed
-single-bell contour is sized, analysed, and optimized.
+NoZZoMe occupies a different level of scope and fidelity from established propulsion,
+optimization, and CFD tools. Its closest relationships are summarized below.
 
-RocketCEA exposes NASA Chemical Equilibrium with Applications calculations to Python
-[@gordon1994; @rocketcea]. NoZZoMe builds on RocketCEA as its thermochemical and ideal
-performance backend rather than reimplementing equilibrium chemistry. RocketCEA does
-not itself construct the continuous contour, march the prescribed-wall MOC field, or
-rank geometries with the viscous corrections used here. OpenMDAO offers a general
-architecture for multidisciplinary analysis and optimization [@gray2019openmdao],
-while SU2 provides mesh-based multiphysics simulation and PDE-constrained design at a
-higher level of fidelity and computational cost [@economon2016su2].
+| Software | Primary role | Relationship to NoZZoMe |
+|:--|:--|:--|
+| RPA [@rpa] | Broad preliminary chemical-rocket-engine analysis, including performance, chamber, nozzle, and thermal calculations | Broader engine-level scope; NoZZoMe concentrates on an inspectable Python workflow for single-bell contour generation and optimization |
+| RocketCEA [@gordon1994; @rocketcea] | Python access to NASA CEA thermochemistry and ideal rocket performance | Used by NoZZoMe as a backend; NoZZoMe adds continuous geometry, prescribed-wall MOC, viscous corrections, and design search |
+| OpenMDAO [@gray2019openmdao] | General multidisciplinary analysis and optimization architecture | A general orchestration framework rather than a nozzle-specific modelling application |
+| SU2 [@economon2016su2] | Mesh-based multiphysics simulation and PDE-constrained design | A higher-fidelity and higher-cost downstream option for checking shortlisted NoZZoMe contours |
 
-Contributing the complete workflow to any one of these projects would therefore mix a
+Table: Positioning of NoZZoMe relative to complementary engineering software.
+
+Contributing the complete workflow to any one of these projects would mix a
 specialized nozzle-design application with either a thermochemical backend, a general
 workflow framework, or a mesh-based CFD suite. NoZZoMe instead composes established
 packages where appropriate and contributes the nozzle-specific geometry, physical
@@ -94,6 +91,8 @@ strategy. It complements rather than replaces the cited tools.
 The overall analysis and optimization sequence is summarized in
 \autoref{fig:workflow}.
 
+## Shared physical evaluation path
+
 The central architectural decision is to keep one physical evaluation path across
 interactive simulation and optimization. Operating conditions, engine pre-sizing
 quantities, fixed contour inputs, and genetic variables are represented separately so
@@ -102,6 +101,21 @@ maintained Python packages separate geometry, RocketCEA access, flow reconstruct
 thermal diagnostics, boundary-layer integration, performance, MOC, optimization, and
 export, while a shared simulation entry point coordinates the common reduced-order
 analysis.
+
+## Modelling and analysis capabilities
+
+| Capability | Technical implementation | Principal output |
+|:--|:--|:--|
+| Thermochemistry and sizing | RocketCEA properties with pressure-matched expansion sizing | Throat and exit conditions, expansion ratio, ideal performance |
+| Parametric geometry | Continuous convergent, throat, and single-bell contour construction | Wall coordinates and geometric design variables |
+| Reduced-order analysis | Quasi-one-dimensional flow, adiabatic thermal diagnostics, wall friction, and integral boundary-layer models | Axial profiles, displacement effects, and loss estimates |
+| Axisymmetric MOC | Prescribed-wall characteristic marching with characteristic-field visualization | Mach, pressure, flow-angle, and mass-conservation diagnostics |
+| Design optimization | Genetic search with Quick, BLIMP-lite, or MOC-assisted evaluation | Ranked feasible geometries and an exactly verified finalist |
+| Reproducibility | Shared API, desktop interface, automated tests, and CSV/JSON export | Repeatable studies and machine-readable results |
+
+Table: Main technical capabilities exposed by the common NoZZoMe workflow.
+
+## Multi-fidelity optimization and verification
 
 Three optimization fidelities expose an explicit cost-versus-detail trade-off. Quick
 screening uses a deliberately weak integral boundary-layer closure; BLIMP-lite uses a
@@ -121,14 +135,17 @@ residuals cannot be accepted merely because they receive a favourable surrogate
 prediction. Numerical study scripts, retained CSV results, automated tests, and
 continuous integration provide reproducible checks outside the graphical interface.
 
-Representative views of the integrated interface are shown in
-\autoref{fig:interface}. They expose the characteristic-field diagnostics,
-optimization history and controls, and three-dimensional contour inspection without
-changing the underlying simulation state.
+## Interactive inspection
 
-![Representative NoZZoMe interface views: (a) axisymmetric MOC diagnostics; (b)
-genetic-optimization history and controls; and (c) interactive three-dimensional
-contour visualization.](joss1.png){#fig:interface width="100%"}
+Representative outputs are shown in \autoref{fig:geometry} and
+\autoref{fig:moc}. They expose the generated nozzle geometry and the
+axisymmetric characteristic-field diagnostics.
+
+![Parametric single-bell nozzle geometry: two-dimensional contour construction
+and interactive three-dimensional surface visualization.](joss1.png){#fig:geometry width="100%"}
+
+![Axisymmetric MOC diagnostics: Mach-number and static-pressure fields, exit
+radial profiles, and mass-conservation verification.](joss3.png){#fig:moc width="100%"}
 
 # Research impact statement
 

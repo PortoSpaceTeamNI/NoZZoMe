@@ -1,0 +1,24 @@
+name: JOSS Clean PDF Preview
+
+on:
+  workflow_dispatch:
+
+jobs:
+  paper:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build clean JOSS PDF
+        run: >-
+          docker run --rm
+          --volume "${{ github.workspace }}:/data"
+          openjournals/inara
+          -o pdf -p paper/paper.md
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: joss-paper-clean
+          path: paper/paper.pdf
